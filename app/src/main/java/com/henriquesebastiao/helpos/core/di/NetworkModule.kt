@@ -5,6 +5,7 @@ import com.henriquesebastiao.helpos.core.network.AuthInterceptor
 import com.henriquesebastiao.helpos.core.network.HostSelectionInterceptor
 import com.henriquesebastiao.helpos.core.network.TokenAuthenticator
 import com.henriquesebastiao.helpos.data.remote.api.AuthApi
+import com.henriquesebastiao.helpos.data.remote.api.ClientApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -73,4 +74,8 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideAuthApi(retrofit: Retrofit): AuthApi = retrofit.create(AuthApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideClientApi(retrofit: Retrofit): ClientApi = retrofit.create(ClientApi::class.java)
 }
