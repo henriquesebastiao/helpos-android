@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="216" height="216">
+  <!-- Conceito A: núcleo de fibra (vista frontal do conector SC) -->
+  <rect width="108" height="108" fill="#0E1B2C"/>
+  <!-- ferrula (anel externo) -->
+  <circle cx="54" cy="54" r="26" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+  <!-- cladding (anel intermediário) -->
+  <circle cx="54" cy="54" r="16" fill="none" stroke="#ADC6FF" stroke-width="3"/>
+  <!-- núcleo (ponto brilhante) -->
+  <circle cx="54" cy="54" r="6" fill="#FFFFFF"/>
+  <circle cx="54" cy="54" r="3" fill="#7AB4FF"/>
+  <!-- feixe de luz diagonal -->
+  <line x1="54" y1="54" x2="86" y2="22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 4" opacity="0.85"/>
+</svg>

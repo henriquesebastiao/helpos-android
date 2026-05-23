@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="216" height="216">
+  <!-- Conceito C: cabo de fibra + chave (ferramenta de campo) cruzados -->
+  <rect width="108" height="108" fill="#0E1B2C"/>
+  <!-- cabo curvo (fibra) -->
+  <path d="M 24 80 Q 54 24 84 80" fill="none" stroke="#7AB4FF" stroke-width="5" stroke-linecap="round"/>
+  <!-- núcleo brilhante no meio do cabo -->
+  <circle cx="54" cy="42" r="4" fill="#FFFFFF"/>
+  <!-- chave inglesa (diagonal) -->
+  <g transform="rotate(-45 54 54)">
+    <rect x="50" y="34" width="8" height="40" rx="2" fill="#FFFFFF"/>
+    <path d="M 46 28 L 46 38 L 50 38 L 50 34 L 58 34 L 58 38 L 62 38 L 62 28 Q 62 24 58 24 L 50 24 Q 46 24 46 28 Z" fill="#FFFFFF"/>
+    <path d="M 46 76 L 46 84 Q 46 88 50 88 L 58 88 Q 62 88 62 84 L 62 76 L 50 76 Z" fill="#FFFFFF"/>
+  </g>
+</svg>

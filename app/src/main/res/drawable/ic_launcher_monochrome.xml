@@ -2,31 +2,24 @@
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
-    android:viewportHeight="108">
+    android:viewportHeight="108"
+    android:tint="?attr/colorControlNormal">
 
-    <!-- ferrula: anel externo do conector óptico -->
+    <!-- camada monochrome: apenas formas brancas, sistema aplica tint -->
     <path
         android:strokeColor="#FFFFFF"
         android:strokeWidth="4"
         android:pathData="M 80,54 a 26,26 0 1,1 -52,0 a 26,26 0 1,1 52,0 Z" />
 
-    <!-- cladding: casca da fibra -->
     <path
-        android:strokeColor="#ADC6FF"
+        android:strokeColor="#FFFFFF"
         android:strokeWidth="3"
         android:pathData="M 70,54 a 16,16 0 1,1 -32,0 a 16,16 0 1,1 32,0 Z" />
 
-    <!-- núcleo externo -->
     <path
         android:fillColor="#FFFFFF"
         android:pathData="M 60,54 a 6,6 0 1,1 -12,0 a 6,6 0 1,1 12,0 Z" />
 
-    <!-- núcleo brilhante -->
-    <path
-        android:fillColor="#7AB4FF"
-        android:pathData="M 57,54 a 3,3 0 1,1 -6,0 a 3,3 0 1,1 6,0 Z" />
-
-    <!-- feixe de luz diagonal (3 traços curtos para insinuar luz) -->
     <path
         android:strokeColor="#FFFFFF"
         android:strokeWidth="2"

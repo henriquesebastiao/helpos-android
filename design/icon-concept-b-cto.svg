@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="216" height="216">
+  <!-- Conceito B: CTO (caixa de terminação óptica) com sinal -->
+  <rect width="108" height="108" fill="#0E1B2C"/>
+  <!-- corpo da CTO -->
+  <rect x="30" y="44" width="48" height="34" rx="4" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+  <!-- portas (4 conectores) -->
+  <circle cx="40" cy="61" r="3" fill="#FFFFFF"/>
+  <circle cx="50" cy="61" r="3" fill="#FFFFFF"/>
+  <circle cx="60" cy="61" r="3" fill="#FFFFFF"/>
+  <circle cx="68" cy="61" r="3" fill="#7AB4FF"/>
+  <!-- arco de sinal saindo do topo -->
+  <path d="M 54 44 Q 54 26 38 26" fill="none" stroke="#ADC6FF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 54 44 Q 54 18 30 18" fill="none" stroke="#ADC6FF" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <!-- ponto de origem do sinal -->
+  <circle cx="54" cy="44" r="3" fill="#FFFFFF"/>
+</svg>
