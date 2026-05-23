@@ -9,13 +9,13 @@ data object LoginRoute
 data object ClientsRoute
 
 @Serializable
-data class ClientDetailRoute(val clientId: String)
+data class ClientDetailRoute(val clientId: Long)
 
 @Serializable
 data object ServiceOrdersRoute
 
 @Serializable
-data class ServiceOrderDetailRoute(val serviceOrderId: String)
+data class ServiceOrderDetailRoute(val serviceOrderId: Long)
 
 @Serializable
 data object SettingsRoute

@@ -21,7 +21,7 @@ import com.henriquesebastiao.helpos.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ClientDetailScreen(
-    clientId: String,
+    clientId: Long,
     onBack: () -> Unit,
 ) {
     Scaffold(
@@ -46,7 +46,7 @@ fun ClientDetailScreen(
             contentAlignment = Alignment.Center,
         ) {
             Text(
-                text = "Cliente $clientId",
+                text = "Cliente #$clientId",
                 style = MaterialTheme.typography.bodyLarge,
             )
         }

@@ -17,7 +17,7 @@ import com.henriquesebastiao.helpos.R
 @Composable
 fun ServiceOrdersScreen(
     padding: PaddingValues,
-    onServiceOrderClick: (String) -> Unit,
+    onServiceOrderClick: (Long) -> Unit,
 ) {
     @Suppress("UNUSED_PARAMETER")
     val unused = onServiceOrderClick

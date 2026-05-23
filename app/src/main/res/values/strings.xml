@@ -31,7 +31,21 @@
 
     <!-- Clients -->
     <string name="clients_placeholder">Lista de clientes (em breve).</string>
+    <string name="clients_search_placeholder">Buscar por nome</string>
+    <string name="clients_empty">Nenhum cliente encontrado.</string>
     <string name="client_detail_title">Detalhe do cliente</string>
+    <string name="client_label_login">Login</string>
+    <string name="client_label_location">Localidade</string>
+    <string name="client_label_address">Endereço</string>
+    <string name="client_label_city">Cidade</string>
+    <string name="client_label_cto">CTO</string>
+    <string name="client_label_port">Porta</string>
+    <string name="client_label_reference">Referência</string>
+    <string name="client_label_ixc">IXC</string>
+
+    <!-- Common actions -->
+    <string name="action_retry">Tentar novamente</string>
+    <string name="cd_clear">Limpar</string>
 
     <!-- Service Orders -->
     <string name="service_orders_placeholder">Lista de ordens de serviço (em breve).</string>

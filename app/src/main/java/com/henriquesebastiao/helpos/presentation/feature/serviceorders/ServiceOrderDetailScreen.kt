@@ -21,7 +21,7 @@ import com.henriquesebastiao.helpos.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ServiceOrderDetailScreen(
-    serviceOrderId: String,
+    serviceOrderId: Long,
     onBack: () -> Unit,
 ) {
     Scaffold(
@@ -46,7 +46,7 @@ fun ServiceOrderDetailScreen(
             contentAlignment = Alignment.Center,
         ) {
             Text(
-                text = "OS $serviceOrderId",
+                text = "OS #$serviceOrderId",
                 style = MaterialTheme.typography.bodyLarge,
             )
         }
