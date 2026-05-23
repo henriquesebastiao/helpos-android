@@ -42,6 +42,11 @@
     <string name="client_label_port">Porta</string>
     <string name="client_label_reference">Referência</string>
     <string name="client_label_ixc">IXC</string>
+    <string name="client_label_pppoe_password">Senha PPPoE</string>
+    <string name="client_section_connection">Conexão</string>
+    <string name="client_section_address">Endereço</string>
+    <string name="client_detail_service_orders">Ordens de serviço (%1$d)</string>
+    <string name="client_detail_no_service_orders">Nenhuma OS registrada para este cliente.</string>
 
     <!-- Common actions -->
     <string name="action_retry">Tentar novamente</string>

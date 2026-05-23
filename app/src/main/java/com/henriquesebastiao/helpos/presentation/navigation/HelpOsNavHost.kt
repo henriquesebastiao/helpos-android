@@ -32,12 +32,8 @@ fun HelpOsNavHost(
                 onClientClick = { id -> navController.navigate(ClientDetailRoute(id)) },
             )
         }
-        composable<ClientDetailRoute> { backStackEntry ->
-            val route: ClientDetailRoute = backStackEntry.toRoute()
-            ClientDetailScreen(
-                clientId = route.clientId,
-                onBack = navController::navigateUp,
-            )
+        composable<ClientDetailRoute> {
+            ClientDetailScreen(onBack = navController::navigateUp)
         }
         composable<ServiceOrdersRoute> {
             ServiceOrdersScreen(
