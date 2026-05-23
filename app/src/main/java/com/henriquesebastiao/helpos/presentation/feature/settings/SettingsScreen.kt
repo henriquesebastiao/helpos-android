@@ -11,6 +11,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.Logout
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -19,6 +20,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -84,10 +86,9 @@ fun SettingsScreen(
             state = state,
             padding = padding,
             onBackendUrlChange = viewModel::onBackendUrlChange,
-            onHelpOsApiKeyChange = viewModel::onHelpOsApiKeyChange,
             onClaudeApiKeyChange = viewModel::onClaudeApiKeyChange,
-            onToggleHelpOsKey = viewModel::toggleHelpOsKeyVisibility,
             onToggleClaudeKey = viewModel::toggleClaudeKeyVisibility,
+            onLogout = viewModel::logout,
         )
     }
 }
@@ -97,10 +98,9 @@ private fun SettingsContent(
     state: SettingsUiState,
     padding: PaddingValues,
     onBackendUrlChange: (String) -> Unit,
-    onHelpOsApiKeyChange: (String) -> Unit,
     onClaudeApiKeyChange: (String) -> Unit,
-    onToggleHelpOsKey: () -> Unit,
     onToggleClaudeKey: () -> Unit,
+    onLogout: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -125,55 +125,49 @@ private fun SettingsContent(
             modifier = Modifier.fillMaxWidth(),
         )
 
-        KeyField(
-            value = state.helpOsApiKey,
-            onValueChange = onHelpOsApiKeyChange,
-            label = stringResource(R.string.settings_helpos_api_key),
-            visible = state.showHelpOsKey,
-            onToggleVisibility = onToggleHelpOsKey,
-            hint = stringResource(R.string.settings_helpos_api_key_hint),
-        )
-
-        KeyField(
+        OutlinedTextField(
             value = state.claudeApiKey,
             onValueChange = onClaudeApiKeyChange,
-            label = stringResource(R.string.settings_claude_api_key),
-            visible = state.showClaudeKey,
-            onToggleVisibility = onToggleClaudeKey,
-            hint = stringResource(R.string.settings_claude_api_key_hint),
+            label = { Text(stringResource(R.string.settings_claude_api_key)) },
+            singleLine = true,
+            visualTransformation = if (state.showClaudeKey) {
+                VisualTransformation.None
+            } else {
+                PasswordVisualTransformation()
+            },
+            supportingText = { Text(stringResource(R.string.settings_claude_api_key_hint)) },
+            trailingIcon = {
+                IconButton(onClick = onToggleClaudeKey) {
+                    Icon(
+                        imageVector = if (state.showClaudeKey) {
+                            Icons.Filled.VisibilityOff
+                        } else {
+                            Icons.Filled.Visibility
+                        },
+                        contentDescription = if (state.showClaudeKey) {
+                            stringResource(R.string.cd_hide_key)
+                        } else {
+                            stringResource(R.string.cd_show_key)
+                        },
+                    )
+                }
+            },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+            modifier = Modifier.fillMaxWidth(),
         )
-    }
-}
 
-@Composable
-private fun KeyField(
-    value: String,
-    onValueChange: (String) -> Unit,
-    label: String,
-    visible: Boolean,
-    onToggleVisibility: () -> Unit,
-    hint: String,
-) {
-    OutlinedTextField(
-        value = value,
-        onValueChange = onValueChange,
-        label = { Text(label) },
-        singleLine = true,
-        visualTransformation = if (visible) VisualTransformation.None else PasswordVisualTransformation(),
-        supportingText = { Text(hint) },
-        trailingIcon = {
-            IconButton(onClick = onToggleVisibility) {
-                Icon(
-                    imageVector = if (visible) Icons.Filled.VisibilityOff else Icons.Filled.Visibility,
-                    contentDescription = if (visible) {
-                        stringResource(R.string.cd_hide_key)
-                    } else {
-                        stringResource(R.string.cd_show_key)
-                    },
-                )
-            }
-        },
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-        modifier = Modifier.fillMaxWidth(),
-    )
+        OutlinedButton(
+            onClick = onLogout,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.Logout,
+                contentDescription = null,
+            )
+            Text(
+                text = stringResource(R.string.settings_logout),
+                modifier = Modifier.padding(start = 8.dp),
+            )
+        }
+    }
 }

@@ -1,8 +1,10 @@
 package com.henriquesebastiao.helpos.core.di
 
 import com.henriquesebastiao.helpos.BuildConfig
-import com.henriquesebastiao.helpos.core.network.ApiKeyInterceptor
+import com.henriquesebastiao.helpos.core.network.AuthInterceptor
 import com.henriquesebastiao.helpos.core.network.HostSelectionInterceptor
+import com.henriquesebastiao.helpos.core.network.TokenAuthenticator
+import com.henriquesebastiao.helpos.data.remote.api.AuthApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -47,12 +49,14 @@ object NetworkModule {
     @Singleton
     fun provideOkHttpClient(
         hostSelectionInterceptor: HostSelectionInterceptor,
-        apiKeyInterceptor: ApiKeyInterceptor,
+        authInterceptor: AuthInterceptor,
+        tokenAuthenticator: TokenAuthenticator,
         loggingInterceptor: HttpLoggingInterceptor,
     ): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(hostSelectionInterceptor)
-        .addInterceptor(apiKeyInterceptor)
+        .addInterceptor(authInterceptor)
         .addInterceptor(loggingInterceptor)
+        .authenticator(tokenAuthenticator)
         .connectTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
         .readTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
         .writeTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
@@ -65,4 +69,8 @@ object NetworkModule {
         .client(client)
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .build()
+
+    @Provides
+    @Singleton
+    fun provideAuthApi(retrofit: Retrofit): AuthApi = retrofit.create(AuthApi::class.java)
 }

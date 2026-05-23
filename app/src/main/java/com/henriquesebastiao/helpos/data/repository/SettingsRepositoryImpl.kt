@@ -18,16 +18,11 @@ class SettingsRepositoryImpl @Inject constructor(
 
     override fun current(): AppSettings = AppSettings(
         backendUrl = prefs.getString(SecurePrefs.KEY_BACKEND_URL, AppSettings.DEFAULT_BACKEND_URL),
-        helpOsApiKey = prefs.getString(SecurePrefs.KEY_HELPOS_API_KEY),
         claudeApiKey = prefs.getString(SecurePrefs.KEY_CLAUDE_API_KEY),
     )
 
     override fun updateBackendUrl(url: String) {
         prefs.putString(SecurePrefs.KEY_BACKEND_URL, url.trim())
-    }
-
-    override fun updateHelpOsApiKey(key: String) {
-        prefs.putString(SecurePrefs.KEY_HELPOS_API_KEY, key.trim())
     }
 
     override fun updateClaudeApiKey(key: String) {

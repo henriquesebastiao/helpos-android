@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.henriquesebastiao.helpos.presentation.feature.clients.ClientDetailScreen
 import com.henriquesebastiao.helpos.presentation.feature.clients.ClientsScreen
+import com.henriquesebastiao.helpos.presentation.feature.login.LoginScreen
 import com.henriquesebastiao.helpos.presentation.feature.serviceorders.ServiceOrderDetailScreen
 import com.henriquesebastiao.helpos.presentation.feature.serviceorders.ServiceOrdersScreen
 import com.henriquesebastiao.helpos.presentation.feature.settings.SettingsScreen
@@ -15,12 +16,16 @@ import com.henriquesebastiao.helpos.presentation.feature.settings.SettingsScreen
 @Composable
 fun HelpOsNavHost(
     navController: NavHostController,
+    startDestination: Any,
     padding: PaddingValues,
 ) {
     NavHost(
         navController = navController,
-        startDestination = ClientsRoute,
+        startDestination = startDestination,
     ) {
+        composable<LoginRoute> {
+            LoginScreen()
+        }
         composable<ClientsRoute> {
             ClientsScreen(
                 padding = padding,

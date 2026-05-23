@@ -31,6 +31,16 @@ class SecurePrefs @Inject constructor(context: Context) {
         prefs.edit().putString(key, value).apply()
     }
 
+    fun remove(vararg keys: String) {
+        prefs.edit().apply {
+            keys.forEach { remove(it) }
+        }.apply()
+    }
+
+    fun clearTokens() {
+        remove(KEY_ACCESS_TOKEN, KEY_REFRESH_TOKEN, KEY_USERNAME)
+    }
+
     fun observeChanges(): Flow<Unit> = callbackFlow {
         val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, _ ->
             trySend(Unit)
@@ -43,7 +53,9 @@ class SecurePrefs @Inject constructor(context: Context) {
     companion object {
         const val FILE_NAME = "helpos_secure_prefs"
         const val KEY_BACKEND_URL = "backend_url"
-        const val KEY_HELPOS_API_KEY = "helpos_api_key"
         const val KEY_CLAUDE_API_KEY = "claude_api_key"
+        const val KEY_ACCESS_TOKEN = "access_token"
+        const val KEY_REFRESH_TOKEN = "refresh_token"
+        const val KEY_USERNAME = "username"
     }
 }

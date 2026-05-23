@@ -7,6 +7,5 @@ interface SettingsRepository {
     fun observe(): Flow<AppSettings>
     fun current(): AppSettings
     fun updateBackendUrl(url: String)
-    fun updateHelpOsApiKey(key: String)
     fun updateClaudeApiKey(key: String)
 }

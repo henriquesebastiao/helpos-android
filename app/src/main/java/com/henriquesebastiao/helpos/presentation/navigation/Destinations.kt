@@ -3,6 +3,9 @@ package com.henriquesebastiao.helpos.presentation.navigation
 import kotlinx.serialization.Serializable
 
 @Serializable
+data object LoginRoute
+
+@Serializable
 data object ClientsRoute
 
 @Serializable
