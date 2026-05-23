@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">HelpOS</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Configurações</string>
+    <string name="settings_backend_url">URL do backend</string>
+    <string name="settings_backend_url_hint">Inclua protocolo (http/https) e porta, ex: http://172.16.0.10:8000/</string>
+    <string name="settings_helpos_api_key">API key do HelpOS</string>
+    <string name="settings_helpos_api_key_hint">Enviada no header X-API-Key em todas as chamadas ao backend.</string>
+    <string name="settings_claude_api_key">API key da Claude</string>
+    <string name="settings_claude_api_key_hint">Usada apenas para gerar o relato a partir da transcrição de voz.</string>
+    <string name="settings_saved">Configurações salvas.</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_back">Voltar</string>
+    <string name="cd_save">Salvar</string>
+    <string name="cd_show_key">Mostrar chave</string>
+    <string name="cd_hide_key">Ocultar chave</string>
+    <string name="cd_settings">Abrir configurações</string>
+
+    <!-- Home -->
+    <string name="home_title">HelpOS</string>
+    <string name="home_placeholder">Selecione uma ferramenta no menu inferior (em breve).</string>
 </resources>
